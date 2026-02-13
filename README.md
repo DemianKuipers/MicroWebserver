@@ -24,4 +24,14 @@ while True:
   server.checkRequest()
 ```
 
+## Adding routes/handlers
+
+You can define handlers for specific url's bij adding a route. This is done by defining a decorated function:
+
+```python
+@server.route("GET", "/")
+def root(request):
+    return Http.HtmlResponse('This is the root page')
+```
+Here **server** is the name of your Http.Server instance, **GET** is the HTTP method and **/** is the url for which this route is defined. The function should accept one parameter which will be of the **Http.Request** type. This object provides information about the HTTP request. The function should return a **Http.Response** object (or a convenience subclass of Http.Response, like Http.HtmlResponse).
 
