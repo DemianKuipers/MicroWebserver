@@ -43,6 +43,7 @@ The Request class has a couple of properties you can use in your handler:
 - **params**: A dict that contains the uri parameters
 - **headers**: A dict containing the HTTP headers
 - **data**: Binary data send along with the HTTP request as content
+  
 For convenience the Request class has a **jsonData()** function that converts the binary data into a json object.
 
 ### The Response class
@@ -51,4 +52,5 @@ The **Response** class has by default a constructor with a HTTP status code. Var
 - **ContentResponse**: Accepts a HTTP status code, bytes object for content data and a mime type as parameters
 - **JsonResponse**: Accepts a json object as parameter which will be the HTTP content body
 - **HtmlResponse**: Accepts HTML code (str object) as parameter (and optionally a HTTP status code)
+  
 For convenience there are several other Response subclasses, like **NotFound**, **NotModified**, **BadRequest**, **ServerError**, etc.
