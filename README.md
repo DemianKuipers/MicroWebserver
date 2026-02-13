@@ -1,11 +1,11 @@
 # MicroWebserver
 
 [MicroWebserver](https://github.com/DemianKuipers/MicroWebserver) is a lightweight HTTP server for MicroPython.
-It supports code defined handlers and simple file serving.
+It supports code defined handlers and static file serving.
 
 ## Installation
 
-You can download the files and copy them to your development folder. You can use an IDE like [Thonny](https://thonny.org) to upload them to your Raspberry Pi Pico W or ESP board.
+You can download the Http.py file and copy it to your development folder. You can use an IDE like [Thonny](https://thonny.org) to upload the files to your Raspberry Pi Pico W or ESP board.
 
 ## Using the webserver
 
@@ -35,6 +35,8 @@ def root(request):
 ```
 Here **server** is the name of your Http.Server instance, **GET** is the HTTP method and **/** is the url for which this route is defined. The function should accept one parameter which will be of the **Http.Request** type. This object provides information about the HTTP request. The function should return a **Http.Response** object (or a convenience subclass of Http.Response, like Http.HtmlResponse).
 
+For more examples see the *test.py* file.
+
 ### The Request class
 The Request class has a couple of properties you can use in your handler:
 - **method**: The HTTP method used, most commonly GET, POST, PUT, DELETE
@@ -54,3 +56,6 @@ The **Response** class has by default a constructor with a HTTP status code. Var
 - **HtmlResponse**: Accepts HTML code (str object) as parameter (and optionally a HTTP status code)
   
 For convenience there are several other Response subclasses, like **NotFound**, **NotModified**, **BadRequest**, **ServerError**, etc.
+
+## Static files
+Besides handling requests defined by routes the webserver also provides a way to serve static files through HTTP GET requests. Simply put the static files in the folder '/www' on the device. Note that the routes defined in code take prevalence over static files.
