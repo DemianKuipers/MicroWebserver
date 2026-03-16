@@ -289,7 +289,7 @@ class Server:
         self._server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         self._server.bind((self.host, self.port))
         self._server.listen(1)
-        self._server.settimeout(self.timeout)
+        self._server.settimeout(0.1)
         try:
             self._hasWebFolder = stat('/www')[0] == 0x4000	# S_ISDIR
         except OSError as ose:
